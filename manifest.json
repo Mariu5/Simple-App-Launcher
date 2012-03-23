@@ -1,0 +1,25 @@
+{
+	"name": "Simple App Launcher",
+	"version": "0.0.0.1",
+	"manifest_version": 2,
+	"description": "Open apps directly from a Chrome-Panel without changing your current Tab.",
+	"icons": { 
+		"16": "image/icon_16.png",
+		"48": "image/icon_48.png",
+		"128": "image/icon_128.png"
+	},
+	"app": {
+		"launch": {
+			"local_path": "/html/main.html",
+			"container": "panel",
+			"height": 300,
+			"width": 230
+		}
+	},
+	"minimum_chrome_version": "18",
+	"offline_enabled": true,
+	"permissions": [
+		"management", 
+		"unlimitedStorage"
+	]
+}

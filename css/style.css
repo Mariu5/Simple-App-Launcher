@@ -1,0 +1,81 @@
+body {
+	padding: 0;
+	margin: 0;
+	font-family: "Arial";
+	background-color: #fff;
+/*	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#737373), to(#CCCCCC));*/
+}
+
+header {
+	outline: 1px solid #f00;
+}
+
+header > nav {
+	font-size: 12px;
+	cursor: default;
+}
+
+header > nav > div {
+	display: inline-block;
+	padding: 0 5px;
+	
+	cursor: default;
+}
+
+header > nav > div:hover {
+	background-color: #999;
+}
+
+#appView {
+	width: 100%;
+/*	outline: 1px solid #0f0;*/
+	padding-top: 5px;
+}
+
+#appView div {
+	display: inline-block;
+	width: 50px;
+	max-height: 95px;
+	vertical-align: top;
+	text-align: center;
+	padding: 0 3px;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+#appView div:hover > img{
+	border: 1px solid #999;
+	border-radius: 3px;
+	padding: 0px;
+}
+
+#appView img {
+	width: 48px;
+	height: 48px;
+	padding: 1px;
+}
+
+#appView span {
+	display: inline-block;
+	vertical-align: top;
+	width: 48px;
+	max-height: 28px;
+	padding: 0 1px;
+	font-size: 10px;
+	overflow: hidden;
+	cursor: default;
+	/*color: #fff;
+	background-color: #333;
+	border-radius: 3px;*/
+}
+
+::-webkit-scrollbar {
+	width: 3px;
+	background-color: #fff;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #999;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: #666;
+}
