@@ -16,7 +16,7 @@ $(document).ready(function() {
 	chrome.management.getAll(function(apps) {
 		var sortedApps = new Array();
 		for(var i in apps) {
-			if(apps[i].isApp && apps[i].enabled) {
+			if(apps[i].isApp && apps[i].enabled && apps[i].name != 'Simple App Launcher') {
 				var app = apps[i].name+',';
 				// console.log(apps[i].name);
 				for(var n in apps[i].icons) {
