@@ -1,5 +1,16 @@
 
 $(document).ready(function() {
+	// prevent more than one instance
+	var views = chrome.extension.getViews();
+	if(views.length > 1) {
+		if(views[1] == self) {
+			views[0].close();
+		} 
+		else {
+			views[1].close();
+		}
+	}
+	
 	// have to wait till panelanimation finished
 	var aktiv = window.setInterval(function(){
 		if (window.innerWidth != 0) {
