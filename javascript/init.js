@@ -1,3 +1,12 @@
+function reloader () {
+	var views = chrome.extension.getViews();
+	views[0].location.reload();
+}
+
+chrome.management.onInstalled.addListener(reloader);
+chrome.management.onUninstalled.addListener(reloader);
+chrome.management.onDisabled.addListener(reloader);
+chrome.management.onEnabled.addListener(reloader);
 
 $(document).ready(function() {
 	// prevent more than one instance
