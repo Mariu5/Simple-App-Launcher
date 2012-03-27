@@ -66,6 +66,7 @@ $(document).ready(function() {
 		for (var i in sites) {
 			console.log(sites[i].title);
 			console.log(sites[i].url);
+			$('#topsiteView').append('<a href="'+sites[i].url+'" >'+sites[i].title+'</a><br />');
 		}
 	});
 	
