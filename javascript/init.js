@@ -33,6 +33,7 @@ $(document).ready(function() {
 		}
 	}, 1000);
 	
+	// load Apps
 	chrome.management.getAll(function(apps) {
 		var sortedApps = new Array();
 		for(var i in apps) {
@@ -58,5 +59,39 @@ $(document).ready(function() {
 			});
 		}
 		
+	});
+	
+	// load Topsites
+	chrome.topSites.get(function(sites) {
+		for (var i in sites) {
+			console.log(sites[i].title);
+			console.log(sites[i].url);
+		}
+	});
+	
+	// set clicks
+	$('#apps').click(function() {
+		$('section').hide();
+		$('#appView').show();
+		$('#topsites').removeClass('selected');
+		$('#bookmarks').removeClass('selected');
+		$('#apps').addClass('selected');
+		
+	});
+
+	$('#topsites').click(function() {
+		$('section').hide();
+		$('#topsiteView').show();
+		$('#apps').removeClass('selected');
+		$('#bookmarks').removeClass('selected');
+		$('#topsites').addClass('selected');
+	});
+	
+	$('#bookmarks').click(function() {
+		$('section').hide();
+		$('#bookmarkView').show();
+		$('#apps').removeClass('selected');
+		$('#topsites').removeClass('selected');
+		$('#bookmarks').addClass('selected');
 	});
 });

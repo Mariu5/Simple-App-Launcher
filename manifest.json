@@ -8,9 +8,9 @@
 		"48": "image/icon_48.png",
 		"128": "image/icon_128.png"
 	},
-	"background": {
-		"scripts": ["javascript/background.js"]
-	},
+	// "background": {
+		// "scripts": ["javascript/background.js"]
+	// },
 	"app": {
 		"launch": {
 			"local_path": "html/main.html",
@@ -19,18 +19,12 @@
 			"width": 230
 		}
 	},
-	"commands": {
-		"open": {
-			"key": "Alt+Shift+L",
-			"description": "Open Launcher with shortcut"
-		}
-	},
 	"minimum_chrome_version": "17",
 	"offline_enabled": true,
 	"permissions": [
 		"management", 
 		"unlimitedStorage",
-		"experimental",
-		"keybinding"
+		"topSites",
+		"bookmarks"
 	]
 }

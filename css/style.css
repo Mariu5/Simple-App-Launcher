@@ -23,7 +23,16 @@ header > nav > div {
 }
 
 header > nav > div:hover {
-	background-color: #999;
+	background-color: #ccc;
+}
+
+header > nav > div.selected {
+	color: #f00;
+}
+
+header > nav > div.selected:hover {
+	color: #f00;
+	background-color: #fff;
 }
 
 #appView {
@@ -67,6 +76,18 @@ header > nav > div:hover {
 	/*color: #fff;
 	background-color: #333;
 	border-radius: 3px;*/
+}
+
+#topsiteView {
+	display: none;
+	width: 100%;
+	padding-top: 5px;
+}
+
+#bookmarkView {
+	display: none;
+	width: 100%;
+	padding-top: 5px;
 }
 
 ::-webkit-scrollbar {

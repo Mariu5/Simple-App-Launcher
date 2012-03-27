@@ -1,3 +1,3 @@
-chrome.experimental.keybinding.onCommand.addListener(function(command) {
-	console.log('Command:', command);
-});
+// chrome.experimental.keybinding.onCommand.addListener(function(command) {
+	// console.log('Command:', command);
+// });
