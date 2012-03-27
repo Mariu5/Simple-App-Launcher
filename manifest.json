@@ -10,7 +10,7 @@
 	},
 	"app": {
 		"launch": {
-			"local_path": "/html/main.html",
+			"local_path": "html/main.html",
 			"container": "panel",
 			"height": 300,
 			"width": 230
