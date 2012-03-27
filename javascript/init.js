@@ -62,13 +62,39 @@ $(document).ready(function() {
 	});
 	
 	// load Topsites
-	chrome.topSites.get(function(sites) {
-		for (var i in sites) {
-			console.log(sites[i].title);
-			console.log(sites[i].url);
-			$('#topsiteView').append('<a href="'+sites[i].url+'" >'+sites[i].title+'</a><br />');
+	// chrome://thumb/url
+	// chrome://favicon/size/16/url
+	if (chrome.topSites) {
+		chrome.topSites.get(function(sites) {
+			for (var i in sites) {
+				console.log(sites[i].title);
+				console.log(sites[i].url);
+				$('#topsiteView').append('<a href="'+sites[i].url+'" >'+sites[i].title+'</a><br />');
+			}
+		});
+	}
+	else {
+		$('#topsiteView').append('<p>I\'m sorry but your version of Chrome does not support Topsite api</p>')
+	}
+	
+	// load Bookmarks
+	
+	// bookmarkbar
+	chrome.bookmarks.getTree(function(tree) {
+		console.log('bookmarkbar: ');
+		for (var i in tree[0].children[0].children) {
+			console.log(tree[0].children[0].children[i].title);
 		}
 	});
+	
+	// other bookmarks
+	chrome.bookmarks.getTree(function(tree) {
+		console.log('other bookmarks: ')
+		for (var i in tree[0].children[1].children) {
+			console.log(tree[0].children[1].children[i].title);
+		}
+	});
+	
 	
 	// set clicks
 	$('#apps').click(function() {

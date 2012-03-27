@@ -95,6 +95,11 @@ header > nav > div.selected:hover {
 	color: #999;
 }
 
+#topsiteView p {
+	margin-left: 10px;
+	font-size: 12px;
+}
+
 #bookmarkView {
 	display: none;
 	width: 100%;
