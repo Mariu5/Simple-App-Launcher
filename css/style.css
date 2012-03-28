@@ -4,6 +4,7 @@ body {
 	font-family: "Arial";
 	background-color: #fff;
 /*	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#737373), to(#CCCCCC));*/
+	overflow: hidden;
 }
 
 header {
@@ -33,6 +34,11 @@ header > nav > div.selected {
 header > nav > div.selected:hover {
 	color: #f00;
 	background-color: #fff;
+}
+
+section {
+	height: 290px;
+	overflow-x: auto;
 }
 
 #appView {
@@ -115,6 +121,19 @@ header > nav > div.selected:hover {
 	display: none;
 	width: 100%;
 	padding-top: 5px;
+}
+
+#bookmarkView ul, li {
+	font-size: 12px;
+	padding: 0;
+}
+
+#bookmarkView > ul {
+	margin-left: 10px;
+}
+
+#bookmarkView > ul > li > ul > li {
+	color: #999;
 }
 
 ::-webkit-scrollbar {

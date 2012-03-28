@@ -3,6 +3,20 @@ function reloader () {
 	views[0].location.reload();
 }
 
+var list = '<ul>';
+function traverse(jsonObj) {
+	for (var i in jsonObj.children) {
+		if (jsonObj.children[i].children) {
+			list += '<li>'+jsonObj.children[i].title+'<ul>';
+			traverse(jsonObj.children[i]);
+			list += '</ul></li>';
+		}
+		else {
+			list += '<li>'+jsonObj.children[i].title+'</li>';
+		}
+	}
+}
+
 chrome.management.onInstalled.addListener(reloader);
 chrome.management.onUninstalled.addListener(reloader);
 chrome.management.onDisabled.addListener(reloader);
@@ -26,8 +40,6 @@ $(document).ready(function() {
 			 window.clearInterval(aktiv);
 			 // Linux, Win & Mac workaround :-P
 			if (window.innerWidth < 230 || window.innerHeight < 300) {
-				console.log('Width: '+window.innerWidth+' difference: '+(230 - window.innerWidth)+'px');
-				console.log('Height: '+window.innerHeight+' difference: '+(300 - window.innerHeight)+'px');
 				window.resizeBy((230 - window.innerWidth), (300 - window.innerHeight));
 			}
 		}
@@ -76,23 +88,11 @@ $(document).ready(function() {
 	}
 	
 	// load Bookmarks
-	
-	// bookmarkbar
 	chrome.bookmarks.getTree(function(tree) {
-		console.log('bookmarkbar: ');
-		for (var i in tree[0].children[0].children) {
-			console.log(tree[0].children[0].children[i].title);
-		}
+		traverse(tree[0]);
+		list += '</ul>';
+		$('#bookmarkView').append(list);
 	});
-	
-	// other bookmarks
-	chrome.bookmarks.getTree(function(tree) {
-		console.log('other bookmarks: ')
-		for (var i in tree[0].children[1].children) {
-			console.log(tree[0].children[1].children[i].title);
-		}
-	});
-	
 	
 	// set clicks
 	$('#apps').click(function() {
