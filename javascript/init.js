@@ -62,14 +62,12 @@ $(document).ready(function() {
 	});
 	
 	// load Topsites
-	// chrome://thumb/url
-	// chrome://favicon/size/16/url
+	// chrome://thumb/url don't work!
+	// http://code.google.com/p/chromium/issues/detail?id=11854
 	if (chrome.topSites) {
 		chrome.topSites.get(function(sites) {
 			for (var i in sites) {
-				console.log(sites[i].title);
-				console.log(sites[i].url);
-				$('#topsiteView').append('<a href="'+sites[i].url+'" >'+sites[i].title+'</a><br />');
+				$('#topsiteView').append('<a href="'+sites[i].url+'" target="_blank"><img src="chrome://favicon/size/16/'+sites[i].url+'" /><span>'+sites[i].title+'</span></a><br />');
 			}
 		});
 	}

@@ -86,7 +86,8 @@ header > nav > div.selected:hover {
 
 #topsiteView a {
 	margin-left: 10px;
-	font-size: 12px;
+	margin-bottom: 10px;
+	font-size: 10px;
 	color: #000;
 	text-decoration: none;
 }
@@ -98,6 +99,16 @@ header > nav > div.selected:hover {
 #topsiteView p {
 	margin-left: 10px;
 	font-size: 12px;
+}
+
+#topsiteView span {
+	display: inline-block;
+	margin-left: 5px;
+	vertical-align: top;
+	font-size: 12px;
+	height: 16px;
+	max-width: 194px;
+	overflow: hidden;
 }
 
 #bookmarkView {

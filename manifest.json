@@ -25,6 +25,7 @@
 		"management", 
 		"unlimitedStorage",
 		"topSites",
-		"bookmarks"
+		"bookmarks",
+		"chrome://favicon/*"
 	]
 }
