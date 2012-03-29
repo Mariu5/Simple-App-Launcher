@@ -7,12 +7,12 @@ var list = '<ul>';
 function traverse(jsonObj) {
 	for (var i in jsonObj.children) {
 		if (jsonObj.children[i].children) {
-			list += '<li>'+jsonObj.children[i].title+'<ul>';
+			list += '<li class="folder"><img src="/image/folder_closed.png" /><span>'+jsonObj.children[i].title+'</span><ul>';
 			traverse(jsonObj.children[i]);
 			list += '</ul></li>';
 		}
 		else {
-			list += '<li>'+jsonObj.children[i].title+'</li>';
+			list += '<li class="item"><img src="chrome://favicon/size/16/'+jsonObj.children[i].url+'" /><a href="'+jsonObj.children[i].url+'" target="_blank">'+jsonObj.children[i].title+'</a></li>';
 		}
 	}
 }
@@ -42,6 +42,7 @@ $(document).ready(function() {
 			if (window.innerWidth < 230 || window.innerHeight < 300) {
 				window.resizeBy((230 - window.innerWidth), (300 - window.innerHeight));
 			}
+			$('section').css('height', window.innerHeight - 20+'px');
 		}
 	}, 1000);
 	
@@ -92,6 +93,18 @@ $(document).ready(function() {
 		traverse(tree[0]);
 		list += '</ul>';
 		$('#bookmarkView').append(list);
+		$('li').click(function(event) {
+			// console.log('click', $(event.target).parent('li'), $(this));
+			if ($(event.target).parent('li').is($(this))) {
+				// console.log('on');
+				if ($(this).children('ul').css('display') == 'none') {
+					$(this).children('ul').show();
+				}
+				else {
+					$(this).children('ul').hide();
+				}
+			}
+		});
 	});
 	
 	// set clicks
