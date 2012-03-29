@@ -47,6 +47,7 @@ $(document).ready(function() {
 	}, 1000);
 	
 	// load Apps
+	$('nav').append('<div id="apps" class="selected">Apps</div>');
 	chrome.management.getAll(function(apps) {
 		var sortedApps = new Array();
 		for(var i in apps) {
@@ -78,6 +79,7 @@ $(document).ready(function() {
 	// chrome://thumb/url don't work!
 	// http://code.google.com/p/chromium/issues/detail?id=11854
 	if (chrome.topSites) {
+		$('nav').append('<div id="topsites">TopSites</div>');
 		chrome.topSites.get(function(sites) {
 			for (var i in sites) {
 				$('#topsiteView').append('<a href="'+sites[i].url+'" target="_blank"><img src="chrome://favicon/size/16/'+sites[i].url+'" /><span>'+sites[i].title+'</span></a><br />');
@@ -89,6 +91,7 @@ $(document).ready(function() {
 	}
 	
 	// load Bookmarks
+	$('nav').append('<div id="bookmarks">Bookmarks</div>');
 	chrome.bookmarks.getTree(function(tree) {
 		traverse(tree[0]);
 		list += '</ul>';
