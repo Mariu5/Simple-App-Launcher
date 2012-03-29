@@ -97,9 +97,7 @@ $(document).ready(function() {
 		list += '</ul>';
 		$('#bookmarkView').append(list);
 		$('li').click(function(event) {
-			// console.log('click', $(event.target).parent('li'), $(this));
 			if ($(event.target).parent('li').is($(this))) {
-				// console.log('on');
 				if ($(this).children('ul').css('display') == 'none') {
 					$(this).children('ul').show();
 				}
