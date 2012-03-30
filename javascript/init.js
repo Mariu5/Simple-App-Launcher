@@ -99,9 +99,11 @@ $(document).ready(function() {
 		$('li').click(function(event) {
 			if ($(event.target).parent('li').is($(this))) {
 				if ($(this).children('ul').css('display') == 'none') {
+					$(this).children('img').attr('src','/image/folder_open.png');
 					$(this).children('ul').show();
 				}
 				else {
+					$(this).children('img').attr('src','/image/folder_closed.png');
 					$(this).children('ul').hide();
 				}
 			}
