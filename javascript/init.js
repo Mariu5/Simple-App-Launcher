@@ -101,6 +101,11 @@ $(document).ready(function() {
 				if ($(this).children('ul').css('display') == 'none') {
 					$(this).children('img').attr('src','/image/folder_open.png');
 					$(this).children('ul').show();
+					console.log(event.clientY);
+					var height = event.clientY - 25;
+					$('#bookmarkView').animate({
+						scrollTop : '+='+height
+					}, 'slow');
 				}
 				else {
 					$(this).children('img').attr('src','/image/folder_closed.png');
