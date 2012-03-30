@@ -4,7 +4,7 @@ window.addEventListener('online', function () {
 }, true);
 
 window.addEventListener('offline', function () {
-	$('.undefined').addClass('disabled');
+	$('div.undefined').addClass('disabled');
 	console.log('off');
 }, true);
 
