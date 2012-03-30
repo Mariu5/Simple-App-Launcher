@@ -1,3 +1,13 @@
+window.addEventListener('online', function () {
+	$('.undefined').removeClass('disabled');
+	console.log('on');
+}, true);
+
+window.addEventListener('offline', function () {
+	$('.undefined').addClass('disabled');
+	console.log('off');
+}, true);
+
 function reloader () {
 	var views = chrome.extension.getViews();
 	views[0].location.reload();
@@ -59,6 +69,9 @@ $(document).ready(function() {
 					}
 				}
 				app = app + ',' + apps[i].id;
+				if (apps[i].offlineEnabled) {
+					app = app + ',' + 'offline';
+				}
 				sortedApps.push(app);
 			}
 			
@@ -67,7 +80,7 @@ $(document).ready(function() {
 		for(var i in sortedApps) {
 			var splitter = sortedApps[i].split(',');
 			var name = splitter[0].replace(/Google /, '');
-			$('#appView').append('<div id="'+splitter[2]+'"><img src="'+splitter[1]+'" /><span>'+name+'</span></div>');
+			$('#appView').append('<div id="'+splitter[2]+'" class="'+splitter[3]+'"><img src="'+splitter[1]+'" /><span>'+name+'</span></div>');
 			$('#appView > div:last').click(function() {
 				chrome.management.launchApp($(this).attr("id"));
 			});
@@ -101,7 +114,7 @@ $(document).ready(function() {
 				if ($(this).children('ul').css('display') == 'none') {
 					$(this).children('img').attr('src','/image/folder_open.png');
 					$(this).children('ul').show();
-					console.log(event.clientY);
+					// console.log(event.clientY);
 					var height = event.clientY - 25;
 					$('#bookmarkView').animate({
 						scrollTop : '+='+height
