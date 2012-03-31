@@ -117,7 +117,8 @@ $(document).ready(function() {
 		list += '</ul>';
 		$('#bookmarkView').append(list);
 		$('li').click(function(event) {
-			if ($(event.target).parent('li').is($(this))) {
+			if ($(event.target).parent('li.folder').is($(this))) {
+				console.log($(event.target));
 				if ($(this).children('ul').css('display') == 'none') {
 					$(this).children('img').attr('src','/image/folder_open.png');
 					$(this).children('ul').show();
@@ -127,8 +128,8 @@ $(document).ready(function() {
 						scrollTop : '+='+height
 					}, 'slow');
 				}
-				else {
-					$(this).children('img').attr('src','/image/folder_closed.png');
+				else if ($(event.target).parent('li.folder')) {
+					$(this).children('img').eq(0).attr('src','/image/folder_closed.png');
 					$(this).children('ul').hide();
 				}
 			}

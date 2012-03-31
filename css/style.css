@@ -7,7 +7,8 @@ body {
 }
 
 header {
-	padding-bottom: 5px;
+	padding-bottom: 8px;
+	box-shadow: 0px 1px 15px #fff;
 }
 
 header > nav {
@@ -35,6 +36,7 @@ header > nav > div.selected {
 	padding: 0 4px;
 	color: #000;
 	background-color: #fff;
+	border-top: 1px solid #aaa;
 	border-left: 1px solid #515151;
 	border-right: 1px solid #515151;
 	border-bottom: 6px solid #fff;
@@ -225,7 +227,8 @@ li > ul {
 
 ::-webkit-scrollbar {
 	width: 3px;
-	background-color: #fff;
+/*	background-color: #fff;*/
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed));
 }
 ::-webkit-scrollbar-thumb {
 	background-color: #999;
