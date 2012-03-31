@@ -24,14 +24,16 @@ header > nav > div {
 	padding: 0 5px;
 	z-index: 9;
 	cursor: default;
+	color: #fff;
 }
 
 header > nav > div:hover {
-	color: #fff;
+	color: #000;
 }
 
 header > nav > div.selected {
 	padding: 0 4px;
+	color: #000;
 	background-color: #fff;
 	border-left: 1px solid #515151;
 	border-right: 1px solid #515151;
@@ -41,13 +43,13 @@ header > nav > div.selected {
 }
 
 header > nav > div.selected:hover {
-	color: #000;
 	background-color: #fff;
 }
 
 section {
 	height: 290px;
-	overflow-x: auto;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 #appView {

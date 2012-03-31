@@ -52,7 +52,7 @@ $(document).ready(function() {
 			if (window.innerWidth < 230 || window.innerHeight < 300) {
 				window.resizeBy((230 - window.innerWidth), (300 - window.innerHeight));
 			}
-			$('section').css('height', window.innerHeight - 20+'px');
+			$('section').css('height', window.innerHeight - 30+'px');
 		}
 	}, 1000);
 	
