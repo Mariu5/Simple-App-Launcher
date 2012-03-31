@@ -8,6 +8,10 @@ window.addEventListener('offline', function () {
 	console.log('off');
 }, true);
 
+window.addEventListener('onresize', function () {
+	$('section').css('height', window.innerHeight - 30+'px');
+}, true);
+
 function reloader () {
 	var views = chrome.extension.getViews();
 	views[0].location.reload();
@@ -52,7 +56,7 @@ $(document).ready(function() {
 			if (window.innerWidth < 230 || window.innerHeight < 300) {
 				window.resizeBy((230 - window.innerWidth), (300 - window.innerHeight));
 			}
-			$('section').css('height', window.innerHeight - 30+'px');
+			// $('section').css('height', window.innerHeight - 30+'px');
 		}
 	}, 1000);
 	
