@@ -76,6 +76,9 @@ $(document).ready(function() {
 			}
 			
 		}
+		// CWS workaround
+		sortedApps.push('Web Store,chrome://extension-icon/ahfgeienlihckogmohjhadlkjgocpleb/128/0,ahfgeienlihckogmohjhadlkjgocpleb,undefined');
+		
 		sortedApps.sort();
 		for(var i in sortedApps) {
 			var splitter = sortedApps[i].split(',');
