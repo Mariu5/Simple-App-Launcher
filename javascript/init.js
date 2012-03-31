@@ -8,10 +8,10 @@ window.addEventListener('offline', function () {
 	console.log('off');
 }, true);
 
-window.addEventListener('onresize', function () {
-	// don't fired in Chrome 18
+window.onresize =  function () {
 	$('section').css('height', window.innerHeight - 30+'px');
-}, true);
+	console.log('test');
+};
 
 function reloader () {
 	var views = chrome.extension.getViews();
@@ -58,7 +58,7 @@ $(document).ready(function() {
 				window.resizeBy((230 - window.innerWidth), (300 - window.innerHeight));
 			}
 			// Chrome => R18
-			$('section').css('height', window.innerHeight - 30+'px');
+			// $('section').css('height', window.innerHeight - 30+'px');
 		}
 	}, 1000);
 	
