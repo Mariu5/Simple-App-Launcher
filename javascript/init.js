@@ -9,6 +9,7 @@ window.addEventListener('offline', function () {
 }, true);
 
 window.addEventListener('onresize', function () {
+	// don't fired in Chrome 18
 	$('section').css('height', window.innerHeight - 30+'px');
 }, true);
 
@@ -56,7 +57,8 @@ $(document).ready(function() {
 			if (window.innerWidth < 230 || window.innerHeight < 300) {
 				window.resizeBy((230 - window.innerWidth), (300 - window.innerHeight));
 			}
-			// $('section').css('height', window.innerHeight - 30+'px');
+			// Chrome => R18
+			$('section').css('height', window.innerHeight - 30+'px');
 		}
 	}, 1000);
 	
