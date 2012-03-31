@@ -134,16 +134,15 @@ $(document).ready(function() {
 	// set clicks
 	$('#apps').click(function() {
 		$('section').hide();
-		$('#appView').show();
+		$('#appView').fadeIn('slow');
 		$('#topsites').removeClass('selected');
 		$('#bookmarks').removeClass('selected');
 		$('#apps').addClass('selected');
-		
 	});
 
 	$('#topsites').click(function() {
 		$('section').hide();
-		$('#topsiteView').show();
+		$('#topsiteView').fadeIn('slow');
 		$('#apps').removeClass('selected');
 		$('#bookmarks').removeClass('selected');
 		$('#topsites').addClass('selected');
@@ -151,7 +150,7 @@ $(document).ready(function() {
 	
 	$('#bookmarks').click(function() {
 		$('section').hide();
-		$('#bookmarkView').show();
+		$('#bookmarkView').fadeIn('slow');
 		$('#apps').removeClass('selected');
 		$('#topsites').removeClass('selected');
 		$('#bookmarks').addClass('selected');
