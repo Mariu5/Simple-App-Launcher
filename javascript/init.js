@@ -10,7 +10,6 @@ window.addEventListener('offline', function () {
 
 window.onresize =  function () {
 	$('section').css('height', window.innerHeight - 30+'px');
-	console.log('test');
 };
 
 function reloader () {
@@ -54,11 +53,10 @@ $(document).ready(function() {
 		if (window.innerWidth != 0) {
 			 window.clearInterval(aktiv);
 			 // Linux, Win & Mac workaround :-P
+			$('section').css('height', window.innerHeight - 30+'px');
 			if (window.innerWidth < 230 || window.innerHeight < 300) {
 				window.resizeBy((230 - window.innerWidth), (300 - window.innerHeight));
 			}
-			// Chrome => R18
-			// $('section').css('height', window.innerHeight - 30+'px');
 		}
 	}, 1000);
 	
