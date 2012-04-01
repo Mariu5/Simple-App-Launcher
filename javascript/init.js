@@ -125,7 +125,8 @@ $(document).ready(function() {
 					$(this).children('span').addClass('fselect');
 					$(this).children('ul').show();
 					// console.log(event.clientY);
-					var height = event.clientY - 25;
+					// console.log(event.clientY - 40);
+					var height = event.clientY - 40;
 					$('#bookmarkView').animate({
 						scrollTop : '+='+height
 					}, 'slow');
