@@ -70,16 +70,17 @@ section {
 	overflow: hidden;
 }
 
-#appView div:hover > img{
-	border: 1px solid #999;
-	border-radius: 3px;
-	padding: 0px;
-}
-
 #appView img {
 	width: 48px;
 	height: 48px;
-	padding: 1px;
+	border: 1px solid rgba(0,0,0,0.0);
+	-webkit-transition: border-color .3s ease-in;
+}
+
+#appView div:hover > img {
+	border: 1px solid #999;
+	border-radius: 3px;
+	padding: 0px;
 }
 
 #appView span {
@@ -91,9 +92,6 @@ section {
 	font-size: 10px;
 	overflow: hidden;
 	cursor: default;
-	/*color: #fff;
-	background-color: #333;
-	border-radius: 3px;*/
 }
 
 #appView .disabled img {
@@ -169,20 +167,27 @@ li > ul {
 	border-left: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	border-radius: 3px 0 0 3px;
+	-webkit-transition: background-color .25s ease-in-out;
 }
 
 .folder > span {
 	display: inline-block;
 	vertical-align: top;
 	padding-right: 5px;
-	height: 20px;
+	padding-top: 3px;
+	height: 17px;
 	border-top: 1px solid #ccc;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	border-radius: 0 3px 3px 0;
+	-webkit-transition: background-color .25s ease-in-out;
 }
 
 .folder:hover > span, .folder:hover > img {
+	background-color: #ccc;
+}
+
+.fselect {
 	background-color: #ccc;
 }
 
@@ -195,10 +200,11 @@ li > ul {
 .item > img {
 	padding-left: 5px;
 	padding-right: 6px;
-	border-top: 1px solid #eee;
-	border-left: 1px solid #eee;
-	border-bottom: 1px solid #eee;
+	border-top: 1px solid rgba(0,0,0,0.0);
+	border-left: 1px solid rgba(0,0,0,0.0);
+	border-bottom: 1px solid rgba(0,0,0,0.0);
 	border-radius: 3px 0 0 3px;
+	-webkit-transition: all .25s ease-in-out;
 }
 
 .item > a {
@@ -210,19 +216,26 @@ li > ul {
 	color: #000;
 	text-decoration: none;
 	padding-right: 5px;
-	border-top: 1px solid #eee;
-	border-right: 1px solid #eee;
-	border-bottom: 1px solid #eee;
+	border-top: 1px solid rgba(0,0,0,0.0);
+	border-right: 1px solid rgba(0,0,0,0.0);
+	border-bottom: 1px solid rgba(0,0,0,0.0);
 	border-radius: 0 3px 3px 0;
+	-webkit-transition: all .25s ease-in-out;
 }
 
 .item:hover > img {
-	background-color: #eee;
+	background-color: #fff;
+	border-top: 1px solid #999;
+	border-left: 1px solid #999;
+	border-bottom: 1px solid #999;
 }
 
 .item:hover > a {
-	background-color: #eee;
-	text-decoration: underline;
+	background-color: #fff;
+/*	text-decoration: underline;*/
+	border-top: 1px solid #999;
+	border-right: 1px solid #999;
+	border-bottom: 1px solid #999;
 }
 
 ::-webkit-scrollbar {

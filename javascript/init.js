@@ -118,9 +118,11 @@ $(document).ready(function() {
 		$('#bookmarkView').append(list);
 		$('li').click(function(event) {
 			if ($(event.target).parent('li.folder').is($(this))) {
-				console.log($(event.target));
+				// console.log($(event.target));
 				if ($(this).children('ul').css('display') == 'none') {
 					$(this).children('img').attr('src','/image/folder_open.png');
+					$(this).children('img').addClass('fselect');
+					$(this).children('span').addClass('fselect');
 					$(this).children('ul').show();
 					// console.log(event.clientY);
 					var height = event.clientY - 25;
@@ -130,6 +132,8 @@ $(document).ready(function() {
 				}
 				else if ($(event.target).parent('li.folder')) {
 					$(this).children('img').eq(0).attr('src','/image/folder_closed.png');
+					$(this).children('img').removeClass('fselect');
+					$(this).children('span').removeClass('fselect');
 					$(this).children('ul').hide();
 				}
 			}
