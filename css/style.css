@@ -140,6 +140,7 @@ section {
 #bookmarkView ul, li {
 	font-size: 12px;
 	padding: 0;
+	list-style: none;
 }
 
 #bookmarkView > ul {
