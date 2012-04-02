@@ -18,18 +18,18 @@ function reloader () {
 }
 
 // apps events
-chrome.management.onInstalled.addListener(reloader);
-chrome.management.onUninstalled.addListener(reloader);
-chrome.management.onDisabled.addListener(reloader);
-chrome.management.onEnabled.addListener(reloader);
+chrome.management.onInstalled.addListener(loadApps);
+chrome.management.onUninstalled.addListener(loadApps);
+chrome.management.onDisabled.addListener(loadApps);
+chrome.management.onEnabled.addListener(loadApps);
 
 // bookmark events
-chrome.bookmarks.onChanged.addListener();
-chrome.bookmarks.onChildrenReordered.addListener();
-chrome.bookmarks.onCreated.addListener();
-chrome.bookmarks.onImportEnded.addListener();
-chrome.bookmarks.onMoved.addListener();
-chrome.bookmarks.onRemoved.addListener();
+chrome.bookmarks.onChanged.addListener(loadBookmarks);
+chrome.bookmarks.onChildrenReordered.addListener(loadBookmarks);
+chrome.bookmarks.onCreated.addListener(loadBookmarks);
+chrome.bookmarks.onImportEnded.addListener(loadBookmarks);
+chrome.bookmarks.onMoved.addListener(loadBookmarks);
+chrome.bookmarks.onRemoved.addListener(loadBookmarks);
 
 $(document).ready(function() {
 	// prevent more than one instance

@@ -14,6 +14,7 @@ function traverse(jsonObj) {
 }
 
 function loadApps () {
+	$('#appView').empty();
 	chrome.management.getAll(function(apps) {
 		var sortedApps = new Array();
 		for(var i in apps) {
@@ -50,6 +51,7 @@ function loadApps () {
 function loadTopsites () {
 	// chrome://thumb/url don't work!
 	// http://code.google.com/p/chromium/issues/detail?id=11854
+	$('#topsiteView').empty();
 	chrome.topSites.get(function(sites) {
 		for (var i in sites) {
 			$('#topsiteView').append('<a href="'+sites[i].url+'" target="_blank"><img src="chrome://favicon/size/16/'+sites[i].url+'" /><span>'+sites[i].title+'</span></a><br />');
@@ -59,6 +61,7 @@ function loadTopsites () {
 
 function loadBookmarks () {
 	list = '<ul>';
+	$('#bookmarkView').empty();
 	chrome.bookmarks.getTree(function(tree) {
 		traverse(tree[0]);
 		list += '</ul>';
