@@ -101,33 +101,36 @@ section {
 	display: none;
 	width: 100%;
 	padding-top: 15px;
-}
-
-#topsiteView a {
-	margin-left: 10px;
-	margin-bottom: 10px;
-	font-size: 10px;
-	color: #000;
-	text-decoration: none;
-}
-
-#topsiteView a:hover {
-	color: #999;
-}
-
-#topsiteView p {
-	margin-left: 10px;
 	font-size: 12px;
 }
 
-#topsiteView span {
+.tsitem {
+	height: 20px;
+	padding: 3px 0;
+	cursor: pointer;
+	-webkit-transition: background-color .25s ease-in-out;
+}
+
+.tsitem > img {
 	display: inline-block;
+	height: 20px;
+	margin-left: 25px;
+}
+
+.tsitem > a {
+	display: inline-block;
+	height: 20px;
+	max-width: 170px;
 	margin-left: 5px;
 	vertical-align: top;
-	font-size: 12px;
-	height: 16px;
-	max-width: 194px;
+	line-height: 18px;
 	overflow: hidden;
+	text-decoration: none;
+	color: #000;
+}
+
+.tsitem:hover {
+	background-color: #d6d6d6;
 }
 
 #bookmarkView {

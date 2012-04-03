@@ -54,8 +54,13 @@ function loadTopsites () {
 	$('#topsiteView').empty();
 	chrome.topSites.get(function(sites) {
 		for (var i in sites) {
-			$('#topsiteView').append('<a href="'+sites[i].url+'" target="_blank"><img src="chrome://favicon/size/16/'+sites[i].url+'" /><span>'+sites[i].title+'</span></a><br />');
+			$('#topsiteView').append('<div class="tsitem"><img src="chrome://favicon/size/16/'+sites[i].url+'" /><a href="'+sites[i].url+'">'+sites[i].title+'</a></div>');
 		}
+		$('.tsitem').click(function (event) {
+				event.preventDefault()
+				// console.log($(this).children('a').attr('href'));
+				chrome.tabs.create({url: $(this).children('a').attr('href')});
+		});
 	});
 }
 
