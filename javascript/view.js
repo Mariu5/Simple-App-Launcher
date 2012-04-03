@@ -67,6 +67,15 @@ function loadBookmarks () {
 		traverse(tree[0]);
 		// list += '</ul>';
 		$('#bookmarkView').append(list);
+		$('#bookmarkView').append('<footer>Bookmark-Manager</footer>');
+		$('#bookmarkView > footer').click(function () {
+			chrome.tabs.create({url: "chrome://bookmarks"});
+		});
+		$('.item').click(function (event) {
+			event.preventDefault()
+			// console.log($(this).children('a').attr('href'));
+			chrome.tabs.create({url: $(this).children('a').attr('href')});
+		});
 		$('.folder > header').click(function(event) {
 				// console.log($(event.target), $(this));
 			if ($(event.target).parent('header').is($(this)) || $(event.target).is($(this))) {
@@ -83,6 +92,7 @@ function loadBookmarks () {
 					});
 					$(this).addClass('fselect');
 					var height = event.clientY - 40;
+					// console.log(height);
 					$('#bookmarkView').animate({
 						scrollTop : '+='+height
 					}, 'slow');

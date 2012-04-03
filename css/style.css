@@ -8,7 +8,6 @@ body {
 
 body > header {
 	padding-bottom: 8px;
-	box-shadow: 0px 1px 15px #fff;
 }
 
 body > header > nav {
@@ -138,6 +137,20 @@ section {
 	font-size: 12px;
 }
 
+#bookmarkView > footer {
+	margin-top: 40px;
+	margin-bottom: 4px;
+	width: 100%;
+	text-align: center;
+	color: #515151;
+	cursor: pointer;
+/*	outline: 1px solid #f00;*/
+}
+
+#bookmarkView > footer:hover {
+	color: #358fd3;
+}
+
 .folder {
 	height: 28px;
 	padding: 0;
@@ -179,6 +192,7 @@ section {
 .item {
 	height: 20px;
 	padding: 3px 0;
+	cursor: pointer;
 	-webkit-transition: background-color .25s ease-in-out;
 }
 
@@ -210,8 +224,8 @@ section {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed));
 }
 ::-webkit-scrollbar-thumb {
-	background-color: #999;
+	background-color: #88bfe8;
 }
 ::-webkit-scrollbar-thumb:hover {
-	background-color: #666;
+	background-color: #70b0e0;
 }
