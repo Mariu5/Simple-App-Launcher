@@ -6,12 +6,12 @@ body {
 	overflow: hidden;
 }
 
-header {
+body > header {
 	padding-bottom: 8px;
 	box-shadow: 0px 1px 15px #fff;
 }
 
-header > nav {
+body > header > nav {
 	height: 15px;
 	padding-top: 5px;
 	font-size: 12px;
@@ -20,7 +20,7 @@ header > nav {
 	box-shadow: 0px 1px 5px #000;
 }
 
-header > nav > div {
+body > header > nav > div {
 	display: inline-block;
 	padding: 0 5px;
 	z-index: 9;
@@ -28,11 +28,11 @@ header > nav > div {
 	color: #fff;
 }
 
-header > nav > div:hover {
+body > header > nav > div:hover {
 	color: #000;
 }
 
-header > nav > div.selected {
+body > header > nav > div.selected {
 	padding: 0 4px;
 	color: #000;
 	background-color: #fff;
@@ -44,7 +44,7 @@ header > nav > div.selected {
 
 }
 
-header > nav > div.selected:hover {
+body > header > nav > div.selected:hover {
 	background-color: #fff;
 }
 
@@ -135,108 +135,73 @@ section {
 	display: none;
 	width: 100%;
 	padding-top: 5px;
-}
-
-#bookmarkView ul, li {
 	font-size: 12px;
-	padding: 0;
-	list-style: none;
-}
-
-#bookmarkView > ul {
-	margin-left: 10px;
-	margin-bottom: 10px;
-}
-
-li > ul {
-	display: none;
 }
 
 .folder {
+	height: 28px;
 	padding: 0;
-	margin-top: 5px;
 	margin-bottom: 5px;
+	margin-top: 5px;
+	overflow: hidden;
 	cursor: default;
 }
 
-.folder > img {
-	display: inline-block;
-	vertical-align: top;
-	padding-left: 5px;
+.folder > header {
 	height: 20px;
-	border-top: 1px solid #ccc;
-	border-left: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-	border-radius: 3px 0 0 3px;
+	padding: 3px 0;
+	border: 1px solid #adadad;
 	-webkit-transition: background-color .25s ease-in-out;
 }
 
-.folder > span {
+.folder > header > img {
 	display: inline-block;
-	vertical-align: top;
-	padding-right: 5px;
-	padding-top: 3px;
-	height: 17px;
-	border-top: 1px solid #ccc;
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-	border-radius: 0 3px 3px 0;
-	-webkit-transition: background-color .25s ease-in-out;
+	height: 20px;
+	margin-left: 5px;
 }
 
-.folder:hover > span, .folder:hover > img {
-	background-color: #ccc;
+.folder > header > span {
+	display: inline-block;
+	height: 20px;
+	margin-left: 5px;
+	vertical-align: top;
+	line-height: 18px;
+}
+
+.folder > header:hover {
+	background-color: #adadad;
 }
 
 .fselect {
-	background-color: #ccc;
+	background-color: #adadad;
 }
 
 .item {
-	padding: 0;
-	margin-top: 3px;
-	margin-bottom: 3px;
+	height: 20px;
+	padding: 3px 0;
+	-webkit-transition: background-color .25s ease-in-out;
 }
 
 .item > img {
-	padding-left: 5px;
-	padding-right: 6px;
-	border-top: 1px solid rgba(0,0,0,0.0);
-	border-left: 1px solid rgba(0,0,0,0.0);
-	border-bottom: 1px solid rgba(0,0,0,0.0);
-	border-radius: 3px 0 0 3px;
-	-webkit-transition: all .25s ease-in-out;
+	display: inline-block;
+	height: 20px;
+	margin-left: 25px;
 }
 
 .item > a {
 	display: inline-block;
-	vertical-align: top;
-	height: 16px;
+	height: 20px;
 	max-width: 170px;
+	margin-left: 5px;
+	vertical-align: top;
+	line-height: 18px;
 	overflow: hidden;
-	color: #000;
 	text-decoration: none;
-	padding-right: 5px;
-	border-top: 1px solid rgba(0,0,0,0.0);
-	border-right: 1px solid rgba(0,0,0,0.0);
-	border-bottom: 1px solid rgba(0,0,0,0.0);
-	border-radius: 0 3px 3px 0;
-	-webkit-transition: all .25s ease-in-out;
+	color: #000;
 }
 
-.item:hover > img {
-	background-color: #fff;
-	border-top: 1px solid #999;
-	border-left: 1px solid #999;
-	border-bottom: 1px solid #999;
-}
-
-.item:hover > a {
-	background-color: #fff;
-/*	text-decoration: underline;*/
-	border-top: 1px solid #999;
-	border-right: 1px solid #999;
-	border-bottom: 1px solid #999;
+.item:hover {
+	background-color: #d6d6d6;
 }
 
 ::-webkit-scrollbar {
