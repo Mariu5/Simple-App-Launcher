@@ -1,4 +1,5 @@
 var list;
+var booklock = false;
 
 function traverse(jsonObj) {
 	for (var i in jsonObj.children) {
@@ -66,52 +67,57 @@ function loadTopsites () {
 
 function loadBookmarks () {
 	// list = '<ul>';
-	list = '';
-	chrome.bookmarks.getTree(function(tree) {
-		traverse(tree[0]);
-		// list += '</ul>';
-		$('#bookmarkView').empty();
-		$('#bookmarkView').append(list);
-		$('#bookmarkView').append('<footer>Bookmark-Manager</footer>');
-		$('#bookmarkView > footer').click(function () {
-			chrome.tabs.create({url: "chrome://bookmarks"});
-		});
-		$('.item').click(function (event) {
-			event.preventDefault()
-			// console.log($(this).children('a').attr('href'));
-			chrome.tabs.create({url: $(this).children('a').attr('href')});
-		});
-		$('.folder > header').click(function(event) {
-				// console.log($(event.target), $(this));
-			if ($(event.target).parent('header').is($(this)) || $(event.target).is($(this))) {
-				// console.log('in');
-				if ($(this).parent('.folder').css('height') == '28px') {
-					$(this).children('img').attr('src','/image/folder_open.png');
-					$(this).parent('.folder').css('height', 'auto');
-					var folderHeight = $(this).parent('.folder').height();
-					$(this).parent('.folder').css('height', '28px');
-					$(this).parent('.folder').animate({
-						height : folderHeight
-					}, 'slow', function () {
+	if (booklock == false) {
+		booklock = true;
+	
+		list = '';
+		chrome.bookmarks.getTree(function(tree) {
+			traverse(tree[0]);
+			// list += '</ul>';
+			$('#bookmarkView').empty();
+			$('#bookmarkView').append(list);
+			$('#bookmarkView').append('<footer>Bookmark-Manager</footer>');
+			$('#bookmarkView > footer').click(function () {
+				chrome.tabs.create({url: "chrome://bookmarks"});
+			});
+			$('.item').click(function (event) {
+				event.preventDefault()
+				// console.log($(this).children('a').attr('href'));
+				chrome.tabs.create({url: $(this).children('a').attr('href')});
+			});
+			$('.folder > header').click(function(event) {
+					// console.log($(event.target), $(this));
+				if ($(event.target).parent('header').is($(this)) || $(event.target).is($(this))) {
+					// console.log('in');
+					if ($(this).parent('.folder').css('height') == '28px') {
+						$(this).children('img').attr('src','/image/folder_open.png');
 						$(this).parent('.folder').css('height', 'auto');
-					});
-					$(this).addClass('fselect');
-					var height = event.clientY - 40;
-					// console.log(height);
-					$('#bookmarkView').animate({
-						scrollTop : '+='+height
-					}, 'slow');
+						var folderHeight = $(this).parent('.folder').height();
+						$(this).parent('.folder').css('height', '28px');
+						$(this).parent('.folder').animate({
+							height : folderHeight
+						}, 'slow', function () {
+							$(this).parent('.folder').css('height', 'auto');
+						});
+						$(this).addClass('fselect');
+						var height = event.clientY - 40;
+						// console.log(height);
+						$('#bookmarkView').animate({
+							scrollTop : '+='+height
+						}, 'slow');
+					}
+					else if ($(event.target).parent('.folder')) {
+						// console.log('in2');
+						$(this).children('img').eq(0).attr('src','/image/folder_closed.png');
+						// $(this).parent('.folder').css('height', '28px');
+						$(this).parent('.folder').animate({
+							height : '28px'
+						}, 'slow');
+						$(this).removeClass('fselect');
+					}
 				}
-				else if ($(event.target).parent('.folder')) {
-					// console.log('in2');
-					$(this).children('img').eq(0).attr('src','/image/folder_closed.png');
-					// $(this).parent('.folder').css('height', '28px');
-					$(this).parent('.folder').animate({
-						height : '28px'
-					}, 'slow');
-					$(this).removeClass('fselect');
-				}
-			}
+			});
+			booklock = false;
 		});
-	});
+	}
 }
