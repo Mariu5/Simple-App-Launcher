@@ -14,7 +14,6 @@ function traverse(jsonObj) {
 }
 
 function loadApps () {
-	$('#appView').empty();
 	chrome.management.getAll(function(apps) {
 		var sortedApps = new Array();
 		for(var i in apps) {
@@ -37,6 +36,7 @@ function loadApps () {
 		sortedApps.push('Web Store,chrome://extension-icon/ahfgeienlihckogmohjhadlkjgocpleb/128/0,ahfgeienlihckogmohjhadlkjgocpleb,undefined');
 		sortedApps.sort();
 		
+		$('#appView').empty();
 		for(var i in sortedApps) {
 			var splitter = sortedApps[i].split(',');
 			var name = splitter[0].replace(/Google /, '');
