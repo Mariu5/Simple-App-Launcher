@@ -67,10 +67,10 @@ function loadTopsites () {
 function loadBookmarks () {
 	// list = '<ul>';
 	list = '';
-	$('#bookmarkView').empty();
 	chrome.bookmarks.getTree(function(tree) {
 		traverse(tree[0]);
 		// list += '</ul>';
+		$('#bookmarkView').empty();
 		$('#bookmarkView').append(list);
 		$('#bookmarkView').append('<footer>Bookmark-Manager</footer>');
 		$('#bookmarkView > footer').click(function () {
