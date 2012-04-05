@@ -51,8 +51,8 @@ function loadApps () {
 function loadTopsites () {
 	// chrome://thumb/url don't work!
 	// http://code.google.com/p/chromium/issues/detail?id=11854
-	$('#topsiteView').empty();
 	chrome.topSites.get(function(sites) {
+		$('#topsiteView').empty();
 		for (var i in sites) {
 			$('#topsiteView').append('<div class="tsitem"><img src="chrome://favicon/size/16/'+sites[i].url+'" /><a href="'+sites[i].url+'">'+sites[i].title+'</a></div>');
 		}
