@@ -95,9 +95,10 @@ function loadBookmarks () {
 						var folderHeight = $(this).parent('.folder').height();
 						$(this).parent('.folder').css('height', '28px');
 						$(this).parent('.folder').animate({
-							height : folderHeight
+							height : folderHeight+1
 						}, 'slow', function () {
 							$(this).parent('.folder').css('height', 'auto');
+							// console.log('auto');
 						});
 						$(this).addClass('fselect');
 						var height = event.clientY - 40;
@@ -105,6 +106,7 @@ function loadBookmarks () {
 						$('#bookmarkView').animate({
 							scrollTop : '+='+height
 						}, 'slow');
+						// console.log('if');
 					}
 					else if ($(event.target).parent('.folder')) {
 						// console.log('in2');
@@ -114,6 +116,11 @@ function loadBookmarks () {
 							height : '28px'
 						}, 'slow');
 						$(this).removeClass('fselect');
+						// console.log('else if');
+					}
+					else {
+						$(this).removeClass('fselect');
+						// console.log('else');
 					}
 				}
 			});

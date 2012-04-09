@@ -1,8 +1,8 @@
 {
 	"name": "Simple Launcher",
-	"version": "0.6.0.34",
+	"version": "0.6.0.36",
 	"manifest_version": 2,
-	"description": "Open apps directly from a Chrome-Panel without leaving your current Tab.",
+	"description": "Open apps and bookmarks directly from a Chrome-Panel without leaving your current Tab.",
 	"icons": { 
 		"16": "image/icon_16.png",
 		"48": "image/icon_48.png",
