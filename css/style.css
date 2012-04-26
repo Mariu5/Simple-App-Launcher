@@ -100,7 +100,7 @@ section {
 #topsiteView {
 	display: none;
 	width: 100%;
-	padding-top: 15px;
+	padding-top: 5px;
 	font-size: 12px;
 }
 
@@ -109,6 +109,10 @@ section {
 	padding: 3px 0;
 	cursor: pointer;
 	-webkit-transition: background-color .25s ease-in-out;
+}
+
+.tsitem:last-of-type {
+	margin-bottom: 15px;
 }
 
 .tsitem > img {
